@@ -23,7 +23,6 @@ nav a:visited {
 }
 
 .nav-list {
-    list-style-type: none;
     display: flex;
     flex-direction: row;
     flex-basis: 300px;

@@ -1,0 +1,28 @@
+
+main {
+    margin: 5px 10px;
+}
+
+.blog-post-link{
+    background-color: white;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+
+.blog-stats{
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+.blog-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.blog-title h2{
+    padding-right: 5px;
+    margin: 0;
+}
+

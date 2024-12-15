@@ -22,6 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  background-color: #E8E9ED;
 }
 
 button, input, select, textarea {
@@ -38,10 +39,12 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   margin-block: 0.67em;
+  color: #2C2F39;
 }
 
 h2 {
   margin-block: 0.83em;
+  color: #38E991;
 }
 
 h3 {
@@ -54,4 +57,12 @@ h4 {
 
 p {
   margin-block: 0.5em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a, a:visited {
+  text-decoration: none;
 }

@@ -10,18 +10,17 @@ import BlogPost from "./pages/blog-post/BlogPost.jsx";
 
 function App() {
     return (
-        <>
-            <Navigation/>
+
+            <div className="page-container">
+                <Navigation/>
             <Routes>
-                <Route path="/" element={<Home />}/>
-                <Route path="/new-post" element={<NewPost />}/>
-                <Route path="/overview" element={<Overview />}/>
-                <Route path="*" element={<NotFound />}/>
-                <Route path="/blog-post/:id" element={<BlogPost />}/>
-
+                <Route path="/" element={<Home/>}/>
+                <Route path="/new-post" element={<NewPost/>}/>
+                <Route path="/overview" element={<Overview/>}/>
+                <Route path="*" element={<NotFound/>}/>
+                <Route path="/blog-post/:id" element={<BlogPost/>}/>
             </Routes>
-        </>
-
+            </div>
 
     )
 }
