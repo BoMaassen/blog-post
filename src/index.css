@@ -5,6 +5,7 @@
   --color-secondary: #2C2F39;
   --color-tertiary: #50535C;
   --color-white: #FFFFFF;
+  --color-lightGrey: #E8E9ED;
 }
 
 * {
@@ -22,7 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-color: #E8E9ED;
+  background-color: var(--color-lightGrey);
 }
 
 button, input, select, textarea {
@@ -39,12 +40,12 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   margin-block: 0.67em;
-  color: #2C2F39;
+  color: var(--color-secondary);
 }
 
 h2 {
   margin-block: 0.83em;
-  color: #38E991;
+  color: var(--color-primary);
 }
 
 h3 {

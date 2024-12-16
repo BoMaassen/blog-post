@@ -3,11 +3,11 @@ import "./Overview.css"
 import {Link} from "react-router-dom";
 function Overview(){
     return (
-        <main>
-            <header>
+        <main className="overview-container">
+            <header className="overview-header">
             <h1>Bekijk alle {posts.length} posts op het platform</h1>
             </header>
-            <section>
+            <section className="overview-section">
             <ul>
             {posts.map((post) => {
                 return <li key={post.id}>

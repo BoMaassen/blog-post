@@ -8,11 +8,6 @@
     padding: 0 20px;
 }
 
-nav a,
-nav a:visited {
-    text-decoration: none;
-}
-
 
 .img-wrapper{
     flex-basis: 200px;
@@ -31,12 +26,12 @@ nav a:visited {
 }
 
 .active-menu-link{
-    border-bottom: 1px solid white;
-    color: #38E991;
+    border-bottom: 1px solid var(--color-white);
+    color: var(--color-primary);
 }
 .default-menu-link{
     border-bottom: 1px solid transparent;
-    color: white;
+    color: var(--color-white);
 }
 
 
