@@ -7,11 +7,13 @@ import Overview from "./pages/overview/Overview.jsx";
 import NotFound from "./pages/not-found/NotFound.jsx";
 import Navigation from "./components/navigation/Navigation.jsx";
 import BlogPost from "./pages/blog-post/BlogPost.jsx";
+import Footer from "./components/footer/Footer.jsx";
 
 function App() {
     return (
-
+<>
             <div className="page-container">
+                <div className="nav-content-container">
                 <Navigation/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
@@ -20,7 +22,13 @@ function App() {
                 <Route path="*" element={<NotFound/>}/>
                 <Route path="/blog-post/:id" element={<BlogPost/>}/>
             </Routes>
+                </div>
+                <div className="footer-container">
+                <Footer/>
+                </div>
             </div>
+
+</>
 
     )
 }

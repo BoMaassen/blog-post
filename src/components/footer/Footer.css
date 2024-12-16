@@ -1,0 +1,11 @@
+footer{
+    background-color: var(--color-primary);
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+footer p {
+    font-weight: bold;
+}
