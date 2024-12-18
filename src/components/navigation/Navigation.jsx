@@ -1,8 +1,11 @@
 import {NavLink} from "react-router-dom";
 import logoMedium from "../../assets/logo-medium.png";
 import './Navigation.css';
+import axios from "axios";
+import {useState} from "react";
 
 function Navigation(){
+
     return(
         <nav className="nav-bar">
             <span className="img-wrapper"><img className="nav-logo" src={logoMedium} alt="logo"/></span>

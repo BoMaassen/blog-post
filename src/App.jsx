@@ -1,5 +1,5 @@
 import './App.css'
-import React from "react";
+import React, {useState} from "react";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/home/Home.jsx";
 import NewPost from "./pages/new-post/NewPost.jsx";
@@ -13,17 +13,7 @@ import axios from "axios";
 function App() {
 
 
-    async function fetchBlogs() {
-        try {
-            const result = await axios.get("http://localhost:3000/posts");
-            console.log(result.data)
-        } catch (e) {
-            console.error(e);
-        }
-
-    }
-
-    async function fetchBlogPost() {
+    /*async function fetchBlogPost() {
         try {
             const result = await axios.get("http://localhost:3000/posts");
             console.log(result.data[5])
@@ -84,7 +74,7 @@ function App() {
 
         }
 
-    }
+    }*/
 
 
     return (
@@ -92,11 +82,11 @@ function App() {
             <div className="page-container">
                 <div className="nav-content-container">
                     <Navigation/>
-                    <button type="button" onClick={fetchBlogs}>Klik hier voor alle blogs</button>
+                    {/*<button type="button" onClick={fetchBlogs}>Klik hier voor alle blogs</button>
                     <button type="button" onClick={fetchBlogPost}>Klik hier voor blog 6</button>
                     <button type="button" onClick={sendBlogPost}>Klik hier om blog te maken</button>
                     <button type="button" onClick={deleteBlogPost}>Klik hier om blog te verwijderen</button>
-                    <button type="button" onClick={updateBlogPost}>Klik hier om blog te veranderen</button>
+                    <button type="button" onClick={updateBlogPost}>Klik hier om blog te veranderen</button>*/}
 
                     <Routes>
                         <Route path="/" element={<Home/>}/>
