@@ -1,5 +1,4 @@
 import './App.css'
-import React, {useState} from "react";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/home/Home.jsx";
 import NewPost from "./pages/new-post/NewPost.jsx";
@@ -8,54 +7,12 @@ import NotFound from "./pages/not-found/NotFound.jsx";
 import Navigation from "./components/navigation/Navigation.jsx";
 import BlogPost from "./pages/blog-post/BlogPost.jsx";
 import Footer from "./components/footer/Footer.jsx";
-import axios from "axios";
+
 
 function App() {
 
 
-    /*async function fetchBlogPost() {
-        try {
-            const result = await axios.get("http://localhost:3000/posts");
-            console.log(result.data[5])
-        } catch (e) {
-            console.error(e);
-        }
-
-    }
-
-    async function sendBlogPost() {
-        try {
-            const result = await axios.post("http://localhost:3000/posts", {
-                title: "Wat gebruiker heeft ingevuld",
-                subtitle: "Wat gebruiker heeft ingevuld",
-                content: "Wat gebruiker heeft ingevuld, in dit geval minder dan 100 woorden",
-                author: "Voornaam achternaam",
-                created: "2023-09-21T09:30:00Z",
-                readTime: 1,
-                comments: 0,
-                shares: 0
-
-            });
-            console.log("Je blog is gepost!", result.data)
-        } catch (e) {
-            console.error("Er is iets mis gegaan", e);
-
-        }
-
-    }
-
-    async function deleteBlogPost() {
-        try {
-            const result = await axios.delete("http://localhost:3000/posts/19");
-            console.log("Je blog is verwijderd!")
-        } catch (e) {
-            console.error("Er is iets mis gegaan", e);
-
-        }
-
-    }
-
-    async function updateBlogPost() {
+    /*async function updateBlogPost() {
         try {
             const result = await axios.put("http://localhost:3000/posts/1", {
                 title: "De Smaken van Italië",

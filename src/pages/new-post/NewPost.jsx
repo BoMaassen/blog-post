@@ -11,10 +11,12 @@ function NewPost() {
     const [error, toggleError] = useState(false);
     const [succes, toggleSucces] = useState(false);
     const [newBlogId, setNewBlogId] = useState(0);
+    const [loading, toggleLoading] = useState(false);
 
     async function handelFormSubmit(data) {
         toggleError(false);
         toggleSucces(false);
+        toggleLoading(true);
         try {
             const timestamp = new Date().toISOString()
             const result = await axios.post("http://localhost:3000/posts",
@@ -34,18 +36,21 @@ function NewPost() {
         } catch (e) {
             console.error(e);
             toggleError(true);
+        }finally {
+            toggleLoading(false);
         }
     }
 
-
+    if (loading) {return <main className="blog-container"><header><h1>Een moment geduld..</h1></header></main>}
+    if (succes) {return <main className="blog-container"><header><h1>De blogpost is succesvol toegevoegd.</h1></header> <section> <p>Je kunt deze hier <Link
+        to={`/blog-post/${newBlogId}`}> bekijken.</Link></p></section></main>
+    }
     return (
         <main className="new-post-container">
             <header>
                 <h1>Post toevoegen</h1>
             </header>
-            {succes ? <p>De blogpost is succesvol toegevoegd. Je kunt deze hier <Link
-                    to={`/blog-post/${newBlogId}`}> bekijken.</Link></p> :
-                <>
+            <section>
                     {error && <h2 className="error-message">Er is iets misgegaan met het versturen. Probeer het
                         opnieuw!</h2>}
 
@@ -90,10 +95,8 @@ function NewPost() {
                         </label>
 
                         <button type="submit">Toevoegen</button>
-
-
                     </form>
-                </> }
+            </section>
         </main>
     )
 }

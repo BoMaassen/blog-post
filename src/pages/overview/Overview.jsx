@@ -5,10 +5,12 @@ import axios from "axios";
 function Overview(){
     const [allBlogs, setAllBlogs] = useState([]);
     const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
 
     useEffect(() => {
         async function fetchBlogs() {
             toggleError(false);
+            toggleLoading(true);
             try {
                 const result = await axios.get("http://localhost:3000/posts");
                 console.log(result.data)
@@ -16,11 +18,15 @@ function Overview(){
             } catch (e) {
                 console.error("Er is iets mis gegaan probeer het opniew",e);
                 toggleError(true);
+            }finally {
+                toggleLoading(false);
             }
 
         }
       fetchBlogs();
     }, []);
+
+    if (loading) {return <main className="blog-container"><header><h1>Een moment geduld..</h1></header></main>}
 
     return (
         <main className="overview-container">
