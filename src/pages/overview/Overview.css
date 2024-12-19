@@ -36,3 +36,7 @@
 .author{
     color: var(--color-secondary);
 }
+
+.error-message{
+    color: red;
+}

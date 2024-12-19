@@ -1,22 +1,46 @@
-import posts from "../../constants/data.json";
 import {Link, useParams} from "react-router-dom";
 import Timestamp from "../../helpers/Timestamp.js";
 import "./BlogPost.css";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function BlogPost() {
     const {id} = useParams();
+    const [blogPost, setBlogPost] = useState([]);
+    const [error, toggleError] = useState(false);
+
+    useEffect(() => {
+        async function fetchBlogPost() {
+            toggleError(false);
+            try {
+                const result = await axios.get("http://localhost:3000/posts");
+                console.log(result.data[id - 1])
+                setBlogPost(result.data[id - 1]);
+            } catch (e) {
+                console.error("Er is iets mis gegaan probeer het opniew", e);
+                toggleError(true);
+            }
+
+        }
+
+        fetchBlogPost();
+    }, []);
+
+
     return (
         <main className="blog-container">
-            <article className="blog-post">
-                <h1>{posts[id - 1].title}</h1>
-                <h3>{posts[id].subtitle}</h3>
-                <p>Geschreven door {posts[id - 1].author} op {Timestamp(posts[id - 1].created)} </p>
-                <p className="readtime">{posts[id - 1].readTime} minuten lezen</p>
-                <p>{posts[id - 1].content}</p>
-                <p>{posts[id - 1].comments} reacties - {posts[id - 1].shares} keer gedeeld </p>
-                <p><Link className="link-back" to="/overview"> Terug naar de overzichtspagina</Link></p>
-            </article>
-
+            {error ? <h1 className="error-message">Er is iets misgegaan met het ophalen. Probeer het
+                opnieuw!</h1> : <>
+                {Object.keys(blogPost).length > 0 &&
+                    <article className="blog-post">
+                        <h1>{blogPost.title}</h1>
+                        <h3>{blogPost.subtitle}</h3>
+                        <p>Geschreven door {blogPost.author} op {Timestamp(blogPost.created)} </p>
+                        <p className="readtime">{blogPost.readTime} minuten lezen</p>
+                        <p>{blogPost.content}</p>
+                        <p>{blogPost.comments} reacties - {blogPost.shares} keer gedeeld </p>
+                        <p><Link className="link-back" to="/overview"> Terug naar de overzichtspagina</Link></p>
+                    </article>}</>}
         </main>
 
 

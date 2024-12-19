@@ -3,6 +3,7 @@ import "./NewPost.css";
 import ReadingTime from "../../helpers/ReadingTime.js";
 import {useNavigate} from "react-router-dom";
 
+
 function NewPost(){
     const {register, handleSubmit, formState:{errors}} = useForm();
     const navigate = useNavigate();

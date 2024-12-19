@@ -1,4 +1,3 @@
-import posts from "../../constants/data.json";
 import "./Overview.css"
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
@@ -20,14 +19,14 @@ function Overview(){
             }
 
         }
-      fetchBlogs()
+      fetchBlogs();
     }, []);
 
     return (
         <main className="overview-container">
             <header className="overview-header">
-                {error ? <h1>Er is iets misgegaan met het ophalen. Probeer het
-                    opnieuw!</h1> : <h1>Bekijk alle {allBlogs.length} posts op het platform</h1>}
+                {error ? <h1 className="error-message">Er is iets misgegaan met het ophalen. Probeer het
+                    opnieuw!</h1> : <h1 >Bekijk alle {allBlogs.length} posts op het platform</h1>}
             </header>
             <section className="overview-section">
                 {Object.keys(allBlogs).length > 0 &&
